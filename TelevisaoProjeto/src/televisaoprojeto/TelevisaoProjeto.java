@@ -47,7 +47,7 @@ public class TelevisaoProjeto {
         n.setTitulo(JOptionPane.showInputDialog("Informe o titulo da novela: "));
         n.setAutor(JOptionPane.showInputDialog("Informe o autor da novela: "));
         n.setDuracao(JOptionPane.showInputDialog("Informe a duração: data do primeiro e do ultimo capitulo "));
-        n.setEmissora(JOptionPane.showInputDialog("Informe a emissora que transmite a novela: "));
+        
         n.setHorario(JOptionPane.showInputDialog("Informe o horario da novela"));
         n.setIbope(Double.parseDouble(JOptionPane.showInputDialog("Informe o ibope da novela")));
         verifica=JOptionPane.showInputDialog("A novela possui cenas de violência? S/N");

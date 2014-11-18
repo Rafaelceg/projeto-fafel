@@ -15,10 +15,17 @@ public class Novela {
 último capítulo), horário de exibição, autor da novela, emissora que 
 transmite a novela e pontuação média do ibope, se apresenta cenas 
 e violência (SIM/Não), sexo(Sim/Não) e drogas(Sim/Não).*/
-    private String titulo, duracao, horario, autor, emissora;
+    private Emissora emissora;
+    private String titulo, duracao, horario, autor;
     private Double ibope;
     private Boolean violencia, sexo, drogas;
 
+    public Novela()
+    {
+    ibope = 0.0;
+    emissora = new Emissora();
+    }
+    
     public String getTitulo() {
         return titulo;
     }
@@ -51,11 +58,11 @@ e violência (SIM/Não), sexo(Sim/Não) e drogas(Sim/Não).*/
         this.autor = autor;
     }
 
-    public String getEmissora() {
+    public Emissora getEmissora() {
         return emissora;
     }
 
-    public void setEmissora(String emissora) {
+    public void setEmissora(Emissora emissora) {
         this.emissora = emissora;
     }
 
