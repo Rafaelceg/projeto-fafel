@@ -5,10 +5,8 @@
  */
 
 package rafaelpessoa;
-
-import Modelo.Pessoa;
 import javax.swing.JOptionPane;
-
+import modelo.Pessoa;
 /**
  *
  * @author Aluno
@@ -19,25 +17,28 @@ public class RafaelPessoa {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-     Pessoa pessoa = new Pessoa();
-     
-     while(pessoa.getCodigo()==null)
-     {
-       try
-       {
-           pessoa.setCodigo(Integer.parseInt(JOptionPane.showInputDialog("Digite o Codigo: ")));
+        // TODO code application logic here
+        Pessoa p = new Pessoa();
+        //tratamento de erros inesperados
+        while(p.getCodigo()==null)
+        {
+            try
+            {
+                //aqui é o q estou executando
+                p.setCodigo(Integer.parseInt(JOptionPane.showInputDialog("Digite codigo: ")));
+            }catch(Exception ex){
+                //aqui é o q quero fazer quando der erro
+                JOptionPane.showMessageDialog(null, "Informe apenas numeros" );
+            }
+        }
+        
        
-       }
-       catch(Exception ex)
-       {
-          JOptionPane.showMessageDialog(null, "ERRO 2347/2 \n Os caracteres devem ser apenas numéricos.");
-      }
-    }
-
-     pessoa.setNome(JOptionPane.showInputDialog("Digite o seu Nome: "));
-     pessoa.setSexo(JOptionPane.showInputDialog("Digite o seu Sexo: "));
-     
-     JOptionPane.showMessageDialog(null, " Code: " +pessoa.getCodigo() + "\n Nome: " + pessoa.getNome() + "\n Sexo: " + pessoa.getSexo());
+        p.setNome(JOptionPane.showInputDialog("Digite nome: "));
+        p.setSexo(JOptionPane.showInputDialog("Digite sexo: "));
+        
+        JOptionPane.showMessageDialog(null, "Informações: \nCódigo: " +p.getCodigo() +"\nNome: "
+                                            +p.getNome() +"\nSexo: "
+                                            +p.getSexo());
     }
     
 }
