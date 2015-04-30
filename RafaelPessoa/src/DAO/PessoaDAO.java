@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelo.Pessoa;
+import Modelo.Pessoa;
 
 /**
  *
@@ -34,6 +34,26 @@ public class PessoaDAO {
             pst.setString(1, pessoa.getNome());
             pst.setString(2, pessoa.getSexo());
             //executa sql no banco
+            pst.executeUpdate();
+            retorno = true;
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        return retorno;
+    }
+    
+    public Boolean atualizar(Pessoa pessoa) {
+        Boolean retorno;
+        String sql = "UPDATE pessoa SET nome = ?, sexo = ?" +"WHERE id=?";
+        //prepara conexao
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
+            //insere parametros
+            pst.setString(1, pessoa.getNome());
+            pst.setString(2, pessoa.getSexo());
+            pst.setInt(3, pessoa.getCodigo());
             pst.executeUpdate();
             retorno = true;
 
