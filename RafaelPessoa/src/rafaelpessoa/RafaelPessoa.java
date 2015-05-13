@@ -6,7 +6,7 @@
 
 package rafaelpessoa;
 import javax.swing.JOptionPane;
-import modelo.Pessoa;
+import Modelo.Pessoa;
 /**
  *
  * @author Aluno

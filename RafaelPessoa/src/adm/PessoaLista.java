@@ -9,7 +9,7 @@ package adm;
 import DAO.PessoaDAO;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import modelo.Pessoa;
+import Modelo.Pessoa;
 
 /**
  *
