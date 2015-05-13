@@ -1,14 +1,13 @@
-package adm;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+package adm;
 
 
-
+import DAO.JogadorDAO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -23,7 +22,7 @@ public class JogadorManter extends javax.swing.JFrame {
     /**
      * Creates new form JogadorCadastrar
      */
-    private final List<Jogador> lista;
+    private List<Jogador> lista;
     private Integer posicao;
     public JogadorManter() {
         initComponents();
@@ -56,14 +55,18 @@ public class JogadorManter extends javax.swing.JFrame {
         blimpar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtemail = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Show do Mil~hoa");
+        setBackground(new java.awt.Color(51, 255, 51));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 51, 0), 1, true), "Navegação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Snap ITC", 0, 14), new java.awt.Color(153, 0, 0))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Navegação"));
 
-        bprimeiro.setBackground(new java.awt.Color(255, 102, 102));
+        bprimeiro.setBackground(new java.awt.Color(0, 0, 0));
         bprimeiro.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
-        bprimeiro.setForeground(new java.awt.Color(51, 102, 0));
         bprimeiro.setText("Primeiro");
         bprimeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,9 +74,8 @@ public class JogadorManter extends javax.swing.JFrame {
             }
         });
 
-        banterior.setBackground(new java.awt.Color(255, 102, 102));
+        banterior.setBackground(new java.awt.Color(0, 0, 0));
         banterior.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
-        banterior.setForeground(new java.awt.Color(51, 102, 0));
         banterior.setText("Anterior");
         banterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,9 +83,8 @@ public class JogadorManter extends javax.swing.JFrame {
             }
         });
 
-        bproximo.setBackground(new java.awt.Color(255, 102, 102));
+        bproximo.setBackground(new java.awt.Color(0, 0, 0));
         bproximo.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
-        bproximo.setForeground(new java.awt.Color(51, 102, 0));
         bproximo.setText("Próximo");
         bproximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,9 +92,8 @@ public class JogadorManter extends javax.swing.JFrame {
             }
         });
 
-        bultimo.setBackground(new java.awt.Color(255, 102, 102));
+        bultimo.setBackground(new java.awt.Color(0, 0, 0));
         bultimo.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
-        bultimo.setForeground(new java.awt.Color(51, 102, 0));
         bultimo.setText("Ultimo");
         bultimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,23 +129,26 @@ public class JogadorManter extends javax.swing.JFrame {
         );
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel1.setText("===Cadastro de Jogadores===");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Cadastro de Jogadores");
 
         jLabel2.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 0, 0));
         jLabel2.setText("Login:");
 
         jLabel3.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 0, 0));
         jLabel3.setText("Senha:");
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 1, true), "Ação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Snap ITC", 0, 14), new java.awt.Color(153, 0, 0))); // NOI18N
+        txtlogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtloginActionPerformed(evt);
+            }
+        });
 
-        bcadastrar.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Ações"));
+
+        bcadastrar.setBackground(new java.awt.Color(0, 0, 0));
         bcadastrar.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
-        bcadastrar.setForeground(new java.awt.Color(51, 102, 0));
         bcadastrar.setText("Cadastrar");
         bcadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,9 +156,8 @@ public class JogadorManter extends javax.swing.JFrame {
             }
         });
 
-        bexcluir.setBackground(new java.awt.Color(255, 102, 102));
+        bexcluir.setBackground(new java.awt.Color(0, 0, 0));
         bexcluir.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
-        bexcluir.setForeground(new java.awt.Color(51, 102, 0));
         bexcluir.setText("Excluir");
         bexcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,9 +165,8 @@ public class JogadorManter extends javax.swing.JFrame {
             }
         });
 
-        bconsultar.setBackground(new java.awt.Color(255, 102, 102));
+        bconsultar.setBackground(new java.awt.Color(0, 0, 0));
         bconsultar.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
-        bconsultar.setForeground(new java.awt.Color(51, 102, 0));
         bconsultar.setText("Consultar");
         bconsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,9 +174,8 @@ public class JogadorManter extends javax.swing.JFrame {
             }
         });
 
-        blimpar.setBackground(new java.awt.Color(255, 102, 102));
+        blimpar.setBackground(new java.awt.Color(0, 0, 0));
         blimpar.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
-        blimpar.setForeground(new java.awt.Color(51, 102, 0));
         blimpar.setText("Limpar");
         blimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,8 +211,15 @@ public class JogadorManter extends javax.swing.JFrame {
         );
 
         jLabel4.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 0, 0));
         jLabel4.setText("E-mail:");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setText("Cadastro de Jogadores");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel6.setText("Cadastro de Jogadores");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -221,48 +228,58 @@ public class JogadorManter extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(165, 165, 165)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtsenha))
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(jLabel1)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtsenha))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addGap(36, 36, 36)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtlogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(txtsenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(45, 45, 45))
         );
 
         pack();
@@ -281,18 +298,25 @@ public class JogadorManter extends javax.swing.JFrame {
 
     private void bcadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcadastrarActionPerformed
         // TODO add your handling code here:
-        Jogador j = new Jogador();
+        Jogador a = new Jogador();
         if(txtlogin.getText().isEmpty() || txtsenha.getText().isEmpty() || txtemail.getText().isEmpty()){
-            JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos");
+            JOptionPane.showMessageDialog(rootPane, "Por favor, preencha todos os bancos");
         }else{
-            j.setLogin(txtlogin.getText());
-            j.setSenha(txtsenha.getText());
-            j.setEmail(txtemail.getText());
-            lista.add(j);
+            a.setLogin(txtlogin.getText());
+            a.setSenha(txtsenha.getText());
+            a.setEmail(txtemail.getText());
+            lista.add(a);
+            
+            JogadorDAO dao = new JogadorDAO();
+            
+            boolean deucerto = dao.inseir(a);
+            if(deucerto=true)
+            {
             JOptionPane.showMessageDialog(this, "Cadastrado");
             }
            
             Limpar();
+     }
     }
     private void Limpar(){
         posicao=0;
@@ -304,7 +328,24 @@ public class JogadorManter extends javax.swing.JFrame {
 
     private void bexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bexcluirActionPerformed
         // TODO add your handling code here:
-        lista.remove(lista.get(posicao));
+        if (txtlogin.getText().isEmpty() == false) {
+            JogadorDAO dao = new JogadorDAO();
+
+            boolean deucerto = dao.excluir(lista.get(posicao));
+
+            if (deucerto == true) {
+                JOptionPane.showMessageDialog(rootPane, "Excluído com sucesso!");
+                lista = dao.listar();
+                Limpar();
+
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "ERRO ao excluir!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Login não informado.");
+        }
+
+        dao.excluir(lista.get(posicao));
         Limpar();
     }//GEN-LAST:event_bexcluirActionPerformed
 
@@ -368,6 +409,10 @@ public class JogadorManter extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bproximoActionPerformed
 
+    private void txtloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtloginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtloginActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -416,6 +461,8 @@ public class JogadorManter extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtemail;

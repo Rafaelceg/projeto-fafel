@@ -1,13 +1,12 @@
-package adm;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+package adm;
 
-
+import DAO.JogadorDAO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -24,38 +23,14 @@ public class JogadorListar extends javax.swing.JFrame {
      */
     public JogadorListar() {
         initComponents();
-        List<Jogador> jogadores = new ArrayList<Jogador>();
         
-        Jogador j1 = new Jogador();
-        j1.setLogin("Eduardo");
-        j1.setSenha("10vinte");
-        j1.setEmail("edu@emailfalso.com");
-        jogadores.add(j1);
-        
-        Jogador j2 = new Jogador();
-        j2.setLogin("Rodrigo");
-        j2.setSenha("pascoa");
-        j2.setEmail("ogirdor@emailfalso.com");
-        jogadores.add(j2);
-        
-        Jogador j3 = new Jogador();
-        j3.setLogin("Marina");
-        j3.setSenha("chocolate");
-        j3.setEmail("mareina@emailfalso.com");
-        jogadores.add(j3);
-        
-        Jogador j4 = new Jogador();
-        j4.setLogin("Gorobinha");
-        j4.setSenha("gorobinha21");
-        j4.setEmail("gorobinha@emailfalso.com");
-        jogadores.add(j4);
-        
-        
+        JogadorDAO dao = new JogadorDAO();
+        List<Jogador> lista = dao.listar();
                 
         DefaultTableModel modelo  = (DefaultTableModel)tabela.getModel();
         Object[] linha = new Object[modelo.getColumnCount()];
         
-        for (Jogador item : jogadores) {
+        for (Jogador item : lista) {
             linha[0] = item.getLogin();
             linha[1] = item.getSenha();
             linha[2] = item.getEmail();
@@ -79,7 +54,8 @@ public class JogadorListar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 0), 5, true), "Lista de Jogadores", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Snap ITC", 0, 14), new java.awt.Color(153, 0, 0))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Jogadores"));
 
         tabela.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 0)));
         tabela.setFont(new java.awt.Font("Snap ITC", 0, 12)); // NOI18N
@@ -116,8 +92,8 @@ public class JogadorListar extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

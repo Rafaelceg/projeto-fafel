@@ -8,11 +8,25 @@ package modelo;
 
 /**
  *
- * @author Aluno
+ * @author Jiovana
  */
 public class Pergunta {
-    private String enunciado, a ,b, c, d, certa;
-    private Integer id, nivel;
+    private Integer id;
+    private String enunciado;
+    private String a;
+    private String b;
+    private String c;
+    private String d;
+    private Integer nivel;
+    private String certa;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getEnunciado() {
         return enunciado;
@@ -54,22 +68,6 @@ public class Pergunta {
         this.d = d;
     }
 
-    public String getCerta() {
-        return certa;
-    }
-
-    public void setCerta(String certa) {
-        this.certa = certa;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Integer getNivel() {
         return nivel;
     }
@@ -77,6 +75,15 @@ public class Pergunta {
     public void setNivel(Integer nivel) {
         this.nivel = nivel;
     }
+
+    public String getCerta() {
+        return certa;
+    }
+
+    public void setCerta(String certa) {
+        this.certa = certa;
+    }
+    
     
     
 }

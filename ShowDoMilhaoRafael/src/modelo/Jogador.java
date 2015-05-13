@@ -8,10 +8,12 @@ package modelo;
 
 /**
  *
- * @author Aluno
+ * @author Jiovana
  */
 public class Jogador {
-    private String login, senha, email;    
+    private String login;
+    private String senha;
+    private String email;
 
     public String getLogin() {
         return login;
@@ -36,4 +38,6 @@ public class Jogador {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    
 }

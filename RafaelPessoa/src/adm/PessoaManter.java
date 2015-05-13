@@ -130,6 +130,11 @@ public class PessoaManter extends javax.swing.JFrame {
         txtnome.setText(" ");
 
         SCombocaixa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Escolha", "M", "F" }));
+        SCombocaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SCombocaixaActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Ação"));
@@ -408,6 +413,10 @@ public class PessoaManter extends javax.swing.JFrame {
         listax.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnListagemActionPerformed
+
+    private void SCombocaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SCombocaixaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SCombocaixaActionPerformed
 
     /**
      * @param args the command line arguments

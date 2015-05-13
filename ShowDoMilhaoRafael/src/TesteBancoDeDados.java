@@ -1,5 +1,5 @@
 
-import dao.Conexao;
+import DAO.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,69 +17,61 @@ import modelo.Jogador;
  */
 /**
  *
- * @author Aluno
+ * @author Jiovana
  */
-public class TesteBancoDeDados {
+public class TesteBancodeDados {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        // TODO code application logic here
         Inserir();
         List<Jogador> lista = listar();
         for (Jogador jogador : lista) {
-            System.out.println(jogador.getLogin() + "\n");
-
+            System.out.println(jogador.getLogin()+"\t/" +jogador.getSenha()+"\t/" +jogador.getEmail()+"\n");
         }
-
-        // TODO code application logic here
     }
 
-    public static List<Jogador> listar()
-
-    {
+    public static List<Jogador> listar() {
         List<Jogador> jogadores = new ArrayList<Jogador>();
         try {
             String sql = "SELECT * FROM jogador";
-            PreparedStatement pst
-                    = Conexao.getPreparedStatement(sql);
+            PreparedStatement pst = Conexao.getPreparedStatement(sql);
             ResultSet res = pst.executeQuery();
             while (res.next()) {
-
+                //pega estrutura do result set e relaciona a classe Jogador
                 Jogador jog = new Jogador();
                 jog.setLogin(res.getString("login"));
                 jog.setSenha(res.getString("senha"));
                 jog.setEmail(res.getString("email"));
-
+                //adiciona na lista
                 jogadores.add(jog);
             }
-
         } catch (SQLException ex) {
-            Logger.getLogger(TesteBancoDeDados.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TesteBancodeDados.class.getName()).log(Level.SEVERE, null, ex);
         }
         return jogadores;
-
     }
 
     public static void Inserir() {
-        String login, email, senha;
+        String login;
+        String email;
+        String senha;
         login = JOptionPane.showInputDialog("LOGIN:");
         senha = JOptionPane.showInputDialog("SENHA:");
         email = JOptionPane.showInputDialog("EMAIL:");
-        
         String sql;
-        sql = "INSET INTO jogador(login, senha, email)" + "VALUES (?,?,?)";
-        PreparedStatement pst
-                    = Conexao.getPreparedStatement(sql);
-        try{
+        sql = "INSERT INTO jogador(login,senha, email)" + "VALUES(?,?,?)";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
             pst.setString(1, login);
             pst.setString(2, senha);
             pst.setString(3, email);
             pst.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(TesteBancoDeDados.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TesteBancodeDados.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-                
     }
+
 }
