@@ -309,7 +309,7 @@ public class JogadorManter extends javax.swing.JFrame {
             
             JogadorDAO dao = new JogadorDAO();
             
-            boolean deucerto = dao.inseir(a);
+            boolean deucerto = dao.inserir(a);
             if(deucerto=true)
             {
             JOptionPane.showMessageDialog(this, "Cadastrado");
@@ -327,15 +327,15 @@ public class JogadorManter extends javax.swing.JFrame {
     }//GEN-LAST:event_bcadastrarActionPerformed
 
     private void bexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bexcluirActionPerformed
-        // TODO add your handling code here:
+       JogadorDAO DAO = new JogadorDAO();
         if (txtlogin.getText().isEmpty() == false) {
-            JogadorDAO dao = new JogadorDAO();
+        
 
-            boolean deucerto = dao.excluir(lista.get(posicao));
+            boolean deucerto = DAO.excluir(lista.get(posicao));
 
             if (deucerto == true) {
                 JOptionPane.showMessageDialog(rootPane, "Excluído com sucesso!");
-                lista = dao.listar();
+                lista = DAO.listar();
                 Limpar();
 
             } else {
@@ -345,7 +345,7 @@ public class JogadorManter extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Login não informado.");
         }
 
-        dao.excluir(lista.get(posicao));
+        DAO.excluir(lista.get(posicao));
         Limpar();
     }//GEN-LAST:event_bexcluirActionPerformed
 

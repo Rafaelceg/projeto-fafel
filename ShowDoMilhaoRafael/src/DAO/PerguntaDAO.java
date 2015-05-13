@@ -45,6 +45,35 @@ public class PerguntaDAO {
         return retorno;
         }
     
+    public List<Pergunta> listarnv1()
+    {
+        List<Pergunta> lista = new ArrayList<Pergunta>();
+        String sql = "Select * FROM pergunta where nivel = 1 order by random()";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        
+        try {
+            ResultSet res = pst.executeQuery();
+            
+            while(res.next())
+            {
+                Pergunta a = new Pergunta();
+                a.setA(res.getString("A"));
+                a.setB(res.getString("B"));
+                a.setC(res.getString("C"));
+                a.setD(res.getString("D"));
+                a.setEnunciado(res.getString("Enunciado"));
+                a.setNivel(res.getInt("Nivel"));
+                a.setCerta(res.getString("Certa"));
+                a.setId(res.getInt("Id"));
+                lista.add(a);
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(JogadorDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return lista;
+    
+ }
+    
      public List<Pergunta> listar()
     {
         List<Pergunta> lista = new ArrayList<Pergunta>();

@@ -1,0 +1,22 @@
+List<Pergunta> perguntas; //perguntas do jogo
+Pergunta perguntaAtual; //pergunta exibida no momento
+
+
+
+(no for windowopened)
+
+//buscar as perguntas do nivel 1
+
+PerguntaDAO dao = new PerguntaDAO();
+perguntas = dao.listarnv1();
+
+
+//colocar a primeira que aparece no perguntaAtual
+perguntaAtual = perguntas.get(0);
+
+//exibir na tela
+lblPergunta.setText(perguntaAtual.getEnunciado());
+op1.setText(perguntaAtual.getA());
+op2.setText(perguntaAtual.getB());
+op3.setText(perguntaAtual.getC());
+op4.setText(perguntaAtual.getD());
