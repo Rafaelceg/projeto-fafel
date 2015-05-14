@@ -20,3 +20,25 @@ op1.setText(perguntaAtual.getA());
 op2.setText(perguntaAtual.getB());
 op3.setText(perguntaAtual.getC());
 op4.setText(perguntaAtual.getD());
+
+
+
+
+
+
+//código do botão confirmar
+
+perguntas.remove(0);
+perguntaAtual = perguntas.get(0);
+
+//exibir na tela
+lblPergunta.setText(perguntaAtual.getEnunciado());
+op1.setText(perguntaAtual.getA());
+op2.setText(perguntaAtual.getB());
+op3.setText(perguntaAtual.getC());
+op4.setText(perguntaAtual.getD());
+
+//desmarcar tudo
+bg1.clearSelection();
+
+
