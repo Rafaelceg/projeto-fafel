@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Modelo;
+package modelo;
 
 /**
  *
@@ -12,7 +12,7 @@ package Modelo;
  */
 public class Pessoa {
     private Integer codigo;
-    private String sexo, nome;
+    private String nome,sexo;
 
     public Integer getCodigo() {
         return codigo;
@@ -22,20 +22,20 @@ public class Pessoa {
         this.codigo = codigo;
     }
 
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
     
 }

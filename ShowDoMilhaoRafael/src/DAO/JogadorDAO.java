@@ -86,4 +86,28 @@ public class JogadorDAO {
         return lista;
         
  }
+    public Jogador login(Jogador jogador){
+    
+        Jogador retorno = null;
+        
+        String sql = "SELECT * JOGADOR where login=? and senha=?";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
+            pst.setString(1, jogador.getLogin());
+            pst.setString(2, jogador.getSenha());
+            
+            ResultSet res = pst.executeQuery();
+            
+            if(res.next())
+            {
+                retorno = new Jogador();
+                retorno.setLogin(res.getString("Login"));
+                retorno.setSenha(res.getString("Senha"));
+                retorno.setEmail(res.getString("Email"));
+            }
+        } catch (Exception e) {
+            
+        }
+        return retorno;
+    }
 }

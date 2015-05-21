@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Aluno/Desktop/5º%20Informática/Rafael%20Garcia%205I/projeto-fafel/ShowdoMilhaoRafael/src/adm/PerguntaManter.java</file>
-            <file>file:/C:/Users/Aluno/Desktop/5º%20Informática/Rafael%20Garcia%205I/projeto-fafel/ShowdoMilhaoRafael/src/DAO/PerguntaDAO.java</file>
-            <file>file:/C:/Users/Aluno/Desktop/5º%20Informática/Rafael%20Garcia%205I/projeto-fafel/ShowdoMilhaoRafael/src/adm/JogadorManter.java</file>
+            <file>file:/C:/Users/Jaime%20Renato/Documents/GitHub/projeto-fafel/ShowDoMilhaoRafael/src/DAO/JogadorDAO.java</file>
+            <file>file:/C:/Users/Jaime%20Renato/Documents/GitHub/projeto-fafel/ShowDoMilhaoRafael/src/DAO/Conexao.java</file>
+            <file>file:/C:/Users/Jaime%20Renato/Documents/GitHub/projeto-fafel/ShowDoMilhaoRafael/src/Jogo/Jogo.java</file>
+            <file>file:/C:/Users/Jaime%20Renato/Documents/GitHub/projeto-fafel/ShowDoMilhaoRafael/src/Jogo/Inicio.java</file>
         </group>
     </open-files>
 </project-private>
