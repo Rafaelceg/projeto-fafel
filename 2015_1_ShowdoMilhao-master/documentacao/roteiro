@@ -1,0 +1,13 @@
+Roteiro de desenvolvimento Show do Milhão
+
+Criar as telas do jogo 
+Exibir as perguntas
+Embaralhar as perguntas e mostrar dois níveis
+------------------------------------------------
+Verificar se está certa a resposta
+Pontuar o jogo
+Gravar no banco de dados quando ele chegou ao fim
+Programar as opções de pular/ajuda
+Inserir imagem do jogador no cadastro
+
+
